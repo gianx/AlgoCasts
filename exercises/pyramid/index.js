@@ -14,6 +14,33 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+	rec(1,n);
+}
+
+
+function rec(line, tot) {
+	if (line===tot+1) {
+		return;
+	}
+	
+	row = tot+(tot-1);
+	pounds = (line-1)*2+1
+	spaces = (row-pounds)/2
+
+	console.log(repeat_char(" ", spaces)+repeat_char("#", pounds)+repeat_char(" ", spaces));
+	rec(line+1, tot)
+
+}
+
+function repeat_char(c, n) {
+	outs = "";
+	for (let s=0; s<n; s++) {
+		outs += c;
+	}
+	return outs
+}
 
 module.exports = pyramid;
+
+pyramid(5);
