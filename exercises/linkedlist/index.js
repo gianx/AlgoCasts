@@ -122,6 +122,28 @@ class LinkedList {
         
     }
 
+    forEach(func) {
+        if (!this.head) {
+            return 
+        }
+        let node = this.head;
+        while (node) {
+            func(node);
+            node = node.next;
+        }
+    }
+
+    *[Symbol.iterator](){
+        if(!this.head) { 
+            return
+        }
+        let node = this.head;
+        while (node) {
+            yield node;
+            node = node.next;
+        }
+    }
+
 }
 
 const list = new LinkedList();
